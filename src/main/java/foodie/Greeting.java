@@ -1,4 +1,4 @@
-package hello;
+package foodie;
 
 public class Greeting {
 
