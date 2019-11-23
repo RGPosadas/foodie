@@ -2,25 +2,13 @@ package addToCart;
 
 public class Menu{
 
-    private final long id = 4;//Needed or not ?
-    //private final String restaurant_ID;
+    private long id;
     private String name;
+    private long restaurantId;
 
-    public Menu(long id, String name) {
-        //this.id = id;
+    public Menu(long id, String name, long restaurantId) {
+        this.id = id;
         this.name = name;
+        this.restaurantId = restaurantId;
     }
-
-    public long getId() {
-        return id;
-    }
-
-    public String getName(){
-        return name;
-    }
-
-    public void setName(String name){
-        this.name = name;
-    }
-
 }
