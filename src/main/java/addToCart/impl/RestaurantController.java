@@ -25,7 +25,6 @@ public class RestaurantController {
     @ResponseBody
     public List<Item> getRestaurentMenuItems() {
         //get items by menu_id (a parameter of the URL)
-        int id = 5; //@RequestParam(value="restaurant_id");
         return jdbcTemplate.query(
                 "SELECT * FROM Restaurant ",
                 (rs, rowNum) ->
