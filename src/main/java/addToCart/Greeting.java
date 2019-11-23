@@ -1,4 +1,4 @@
-package foodie;
+package addToCart;
 
 public class Greeting {
 
