@@ -1,4 +1,4 @@
-package hello;
+package addToCart;
 
 import java.util.concurrent.atomic.AtomicLong;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,8 +9,8 @@ import org.springframework.jdbc
 @RestController
 public class MenuController {
 
-    @GetMapping(path="/ItemAll")
-    public @ResponseBody Iterable<Menu> getAllItems(){
-        return itemReposity.findAll();
+    @GetMapping(path="/MenuAll")
+    public @ResponseBody Iterable<Menu> getAllMenus(){
+        return menuRepository.findAll();
     }
 }
