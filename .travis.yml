@@ -1,0 +1,4 @@
+language: java
+script:
+- echo "Running no tests for now"
+
