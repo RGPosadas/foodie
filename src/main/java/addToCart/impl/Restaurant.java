@@ -1,4 +1,4 @@
-package addToCart;
+package addToCart.impl;
 
 public class Restaurant{
 
