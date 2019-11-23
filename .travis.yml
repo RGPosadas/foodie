@@ -1,4 +1,5 @@
 language: java
 script:
-- echo "Running no tests for now"
-
+- mvn compile
+- mvn package
+- java -jar target/gs-rest-service-0.1.0.jar &
