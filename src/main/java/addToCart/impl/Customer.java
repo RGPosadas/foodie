@@ -17,4 +17,12 @@ public class Customer {
         this.password = password;
         this.email = email;
     }
+
+    public String getLocation(){
+        return location;
+    }
+
+    public void setLocation(String newLocation) {
+        location = newLocation;
+    }
 }
