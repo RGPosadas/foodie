@@ -15,7 +15,7 @@ public class MenuController {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    @RequestMapping(value = "/menus", params ="restaurant_id",method= RequestMethod.GET)
+    @RequestMapping(value = "/menu", params ="restaurant_id", method= RequestMethod.GET)
     @ResponseBody
     public List<Menu> getRestaurantMenuItems(@RequestParam(name = "restaurant_id") int restaurant_id) {
         return jdbcTemplate.query(
