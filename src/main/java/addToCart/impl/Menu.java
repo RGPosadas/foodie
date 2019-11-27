@@ -12,7 +12,7 @@ public class Menu{
         this.restaurantId = restaurantId;
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
@@ -20,7 +20,7 @@ public class Menu{
         return name;
     }
 
-    public long getRestaurantId(){
+    public int getRestaurantId(){
         return restaurantId;
     }
 }
