@@ -2,17 +2,17 @@ package addToCart.impl;
 
 public class Restaurant{
 
-    private final long id;//Needed or not ?
+    private final int id;//Needed or not ?
     private String name;
     private String address;
 
-    public Restaurant(long id, String name, String address) {
+    public Restaurant(int id, String name, String address) {
         this.id = id;
         this.name = name;
         this.address = address;
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 

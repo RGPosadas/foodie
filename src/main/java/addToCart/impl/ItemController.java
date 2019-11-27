@@ -17,14 +17,14 @@ public class ItemController {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    @RequestMapping(value = "/items", method = RequestMethod.GET)
+    @RequestMapping(value = "/item",params ="menu_id", method = RequestMethod.GET)
     @ResponseBody
     public List<Item> getRestaurentMenuItems(@RequestParam(name = "menu_id") int menu_id) {
         return jdbcTemplate.query(
-                    "SELECT * FROM Item WHERE menu_id = " + menu_id, 
+                    "SELECT * FROM foodie.Item WHERE menu_id = " + menu_id, 
                     (rs, rowNum) ->
                         new Item(
-                            rs.getLong("id"),
+                            rs.getInt("id"),
                             rs.getString("name"),
                             rs.getDouble("price"),
                             rs.getString("description")
