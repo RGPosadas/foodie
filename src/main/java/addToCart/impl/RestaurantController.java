@@ -19,7 +19,7 @@ public class RestaurantController {
     @ResponseBody
     public List<Restaurant> getRestaurentMenuItems() {
         return jdbcTemplate.query(
-                "SELECT * FROM Restaurant ",
+                "SELECT * FROM foodie.Restaurant ",
                 (rs, rowNum) ->
                         new Restaurant(
                                 rs.getLong("id"),

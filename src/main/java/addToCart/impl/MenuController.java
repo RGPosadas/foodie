@@ -19,12 +19,12 @@ public class MenuController {
     @ResponseBody
     public List<Menu> getRestaurentMenuItems(@RequestParam(name = "restaurant_id") int restaurant_id) {
         return jdbcTemplate.query(
-                    "SELECT * FROM menu WHERE restaurant_id = " + restaurant_id, 
+                    "SELECT * FROM foodie.menu WHERE restaurant_id = " + restaurant_id, 
                     (rs, rowNum) ->
                         new Menu(
-                            rs.getLong("id"),
+                            rs.getInt("id"),
                             rs.getString("name"),
-                            rs.getLong("restaurantId")
+                            rs.getInt("restaurant_id")
                         )
             );
     }
