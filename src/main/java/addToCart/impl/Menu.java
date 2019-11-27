@@ -11,4 +11,16 @@ public class Menu{
         this.name = name;
         this.restaurantId = restaurantId;
     }
+
+    public long getId() {
+        return id;
+    }
+
+    public String getName(){
+        return name;
+    }
+
+    public long getRestaurantId(){
+        return restaurantId;
+    }
 }
