@@ -1,4 +1,4 @@
-package addToCart;
+package addToCart.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -16,7 +16,7 @@ public class CustomerController {
 
     @RequestMapping(value = "/set-location", method = RequestMethod.PUT)
     @ResponseBody
-    public String getRestaurentMenuItems(@RequestParam(name = "location") int new_location) {
+    public String getRestaurantMenuItems(@RequestParam(name = "location") int new_location) {
         int globalUserID = 5;
         jdbcTemplate.update("UPDATE customer SET location = " + new_location + " WHERE id = " + globalUserID);
         return "update successful";
