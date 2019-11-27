@@ -21,10 +21,10 @@ public class ItemController {
     @ResponseBody
     public List<Item> getRestaurentMenuItems(@RequestParam(name = "menu_id") int menu_id) {
         return jdbcTemplate.query(
-                    "SELECT * FROM Item WHERE menu_id = " + menu_id, 
+                    "SELECT * FROM foodie.Item WHERE menu_id = " + menu_id, 
                     (rs, rowNum) ->
                         new Item(
-                            rs.getLong("id"),
+                            rs.getInt("id"),
                             rs.getString("name"),
                             rs.getDouble("price"),
                             rs.getString("description")
