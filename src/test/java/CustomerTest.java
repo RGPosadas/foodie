@@ -2,7 +2,7 @@ package test.java;
 
 import org.junit.jupiter.api.Test;
 
-import addToCart.Customer;
+import addToCart.impl.Customer;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
  
