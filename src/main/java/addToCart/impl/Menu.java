@@ -2,17 +2,17 @@ package addToCart.impl;
 
 public class Menu{
 
-    private long id;
+    private int id;
     private String name;
-    private long restaurantId;
+    private int restaurantId;
 
-    public Menu(long id, String name, long restaurantId) {
+    public Menu(int id, String name, int restaurantId) {
         this.id = id;
         this.name = name;
         this.restaurantId = restaurantId;
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
@@ -20,7 +20,7 @@ public class Menu{
         return name;
     }
 
-    public long getRestaurantId(){
+    public int getRestaurantId(){
         return restaurantId;
     }
 }

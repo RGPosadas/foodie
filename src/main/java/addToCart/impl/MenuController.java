@@ -15,9 +15,9 @@ public class MenuController {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    @RequestMapping(value = "/menus", method = RequestMethod.GET)
+    @RequestMapping(value = "/menus", params ="restaurant_id",method= RequestMethod.GET)
     @ResponseBody
-    public List<Menu> getRestaurentMenuItems(@RequestParam(name = "restaurant_id") int restaurant_id) {
+    public List<Menu> getRestaurantMenuItems(@RequestParam(name = "restaurant_id") int restaurant_id) {
         return jdbcTemplate.query(
                     "SELECT * FROM foodie.menu WHERE restaurant_id = " + restaurant_id, 
                     (rs, rowNum) ->
