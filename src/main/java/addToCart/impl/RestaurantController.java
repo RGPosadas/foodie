@@ -22,7 +22,7 @@ public class RestaurantController {
                 "SELECT * FROM foodie.Restaurant ",
                 (rs, rowNum) ->
                         new Restaurant(
-                                rs.getLong("id"),
+                                rs.getInt("id"),
                                 rs.getString("name"),
                                 rs.getString("address")
                         )
