@@ -23,16 +23,18 @@ export default class ProvideAddress extends Component {
             <SafeAreaView style={styles.container}>
                 <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
                     <TextInput
-                              style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}
+                              style={{ borderWidth:2 }}
                               placeholder="Input Address here"
+                              placeholderTextColor="#003eff"
                               onChangeText={(text) => this.setState({text})}
                               value={this.state.text}
                      />
                 </View>
-                <View>
+                <View style={{flex:1}}>
                     <Button
                           title="Find Restaurants"
                           onPress={() => this.props.navigation.navigate('FetchRestaurants', {text: this.state.text})}
+                          color = "#ff0000"
                       />
                 </View>
             </SafeAreaView>

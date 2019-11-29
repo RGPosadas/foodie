@@ -17,7 +17,7 @@ export default class FetchMenu extends Component {
 
     constructor(props){
         super(props);
-        this.state ={ isLoading: true};
+        this.state ={ isLoading: true, pricetotal:0};
 
         this.menuItems = [
             {
@@ -60,6 +60,7 @@ export default class FetchMenu extends Component {
     addToCart(item){
         this.cartItems.push(item);
         alert("Added");
+        this.setState({pricetotal: this.state.pricetotal+item.price});
     };
 
     render(){
@@ -91,7 +92,7 @@ export default class FetchMenu extends Component {
                 <View>
                     <Button
                         title="Go To Cart"
-                        onPress={() => navigate('GoToCart', {arrayCartItems: this.cartItems})}
+                        onPress={() => navigate('GoToCart', {arrayCartItems: this.cartItems, totalprice: this.state.pricetotal})}
                     />
                 </View>
             </SafeAreaView>
