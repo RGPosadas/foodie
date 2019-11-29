@@ -30,10 +30,7 @@ export default class FetchExample extends Component {
             });
     }
 
-
-
     render(){
-
         const {navigate} = this.props.navigation;
 
         if(this.state.isLoading){
@@ -62,10 +59,10 @@ export default class FetchExample extends Component {
                 </View>
                 <Separator/>
                 <View>
-                <Button
-                    title="FetchRestaurants"
-                    onPress={() => navigate('FetchRestaurants')}
-                />
+                    <Button
+                        title="FetchRestaurants"
+                        onPress={() => navigate('FetchRestaurants')}
+                    />
                 </View>
                 <Separator/>
                 <View>
