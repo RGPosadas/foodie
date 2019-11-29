@@ -11,6 +11,10 @@ import {ActivityIndicator,
 
 export default class FetchMenu extends Component {
 
+    static navigationOptions = {
+        title: 'Menu'
+    };
+
     constructor(props){
         super(props);
         this.state ={ isLoading: true};
@@ -58,7 +62,7 @@ export default class FetchMenu extends Component {
         const restaurant_id = this.props.navigation.getParam("menu");
 
         return (
-            <View style={{ flex: 0, alignItems: 'center', justifyContent: 'center' }}>
+            <SafeAreaView style={styles.container}>
                 <Text>Fetch Menu {JSON.stringify(restaurant_id)}</Text>
 
                 <View style={styles.container}>
@@ -78,12 +82,13 @@ export default class FetchMenu extends Component {
                           keyExtractor={({id}, index) => id}
                       />
                 </View>
-
-                <Button
-                    title="GoToCart"
-                    onPress={() => navigate('GoToCart', {arrayCartItems: this.cartItems})}
-                />
-            </View>
+                <View>
+                    <Button
+                        title="Go To Cart"
+                        onPress={() => navigate('GoToCart', {arrayCartItems: this.cartItems})}
+                    />
+                </View>
+            </SafeAreaView>
         );
     }
 };

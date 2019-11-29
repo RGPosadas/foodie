@@ -13,6 +13,10 @@ import listresto from '../listresto.json';
 
 export default class FetchRestaurants extends Component {
 
+  static navigationOptions = {
+        title: 'Restaurants Near You'
+    };
+
     constructor(props){
         super(props);
         this.state ={
@@ -43,7 +47,7 @@ export default class FetchRestaurants extends Component {
         const Address = this.props.navigation.getParam('text');
 
         return (
-        <SafeAreaView style={styles.container}>
+            <SafeAreaView style={styles.container}>
                 <Text>Fetch Restaurants {JSON.stringify(Address)}</Text>
                  <View style={styles.container}>
                         <FlatList
@@ -55,7 +59,6 @@ export default class FetchRestaurants extends Component {
                                 underlayColor='white'>
                                      <Text style={styles.item}>{item.name}</Text>
                                 </TouchableHighlight>
-
                             )
                             }
                           }
@@ -63,8 +66,7 @@ export default class FetchRestaurants extends Component {
                         />
                 </View>
 
-                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-                    <Text>Provide Address</Text>
+                <View>
                     <Button
                         title="FetchMenu"
                         onPress={() => navigate('FetchMenu')}
