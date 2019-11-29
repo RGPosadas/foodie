@@ -37,14 +37,29 @@ export default class FetchMenu extends Component {
 //        headers: headers,
 //    })
 
+//    componentDidMount(){
+//        fetch('https://jsonplaceholder.typicode.com/users')
+//            .then((response) => response.json())
+//            .then((responseJson) => {
+//                this.setState({
+//                isLoading: false,
+//                dataSource: responseJson, //Need to modify after getting real JSON
+//                });
+//             },
+//            )
+//            .catch((error) =>{
+//                console.error(error);
+//            });
+//    }
+
     render(){
 
         const {navigate} = this.props.navigation;
-        const resto = this.props.navigation.getParam("menu");
+        const restaurant_id = this.props.navigation.getParam("menu");
 
         return (
             <View style={{ flex: 0, alignItems: 'center', justifyContent: 'center' }}>
-                <Text>Fetch Menu {JSON.stringify(resto)}</Text>
+                <Text>Fetch Menu {JSON.stringify(restaurant_id)}</Text>
 
                 <View style={styles.container}>
                       <FlatList

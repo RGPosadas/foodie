@@ -40,9 +40,11 @@ export default class FetchRestaurants extends Component {
     render(){
 
         const {navigate} = this.props.navigation;
+        const Address = this.props.navigation.getParam('text');
 
         return (
         <SafeAreaView style={styles.container}>
+                <Text>Fetch Restaurants {JSON.stringify(Address)}</Text>
                  <View style={styles.container}>
                         <FlatList
 //                        data={this.state.dataSource}  add this after having real data
