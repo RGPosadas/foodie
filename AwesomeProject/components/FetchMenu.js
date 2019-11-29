@@ -1,13 +1,5 @@
 import React, { Component } from 'react';
-import {ActivityIndicator,
-        Button,
-        Text,
-        View,
-        FlatList,
-        StyleSheet,
-        SafeAreaView,
-        TouchableHighlight}
-        from "react-native";
+import {ActivityIndicator, Button, Text, View, FlatList, StyleSheet, SafeAreaView, TouchableHighlight} from "react-native";
 
 export default class FetchMenu extends Component {
 
@@ -17,19 +9,19 @@ export default class FetchMenu extends Component {
 
     constructor(props){
         super(props);
-        this.state ={ isLoading: true, pricetotal:0};
+        this.state ={ isLoading: true, priceTotal:0};
 
         this.menuItems = [
             {
-                name: 'First Item',
+                name: 'First Item: $',
                 price: 10,
             },
             {
-                name: 'Second Item',
+                name: 'Second Item: $',
                 price: 5,
             },
             {
-                name: 'Third Item',
+                name: 'Third Item: $',
                 price: 8,
             },
         ];
@@ -60,7 +52,7 @@ export default class FetchMenu extends Component {
     addToCart(item){
         this.cartItems.push(item);
         alert("Added");
-        this.setState({pricetotal: this.state.pricetotal+item.price});
+        this.setState({priceTotal: this.state.priceTotal+item.price});
     };
 
     render(){
@@ -92,7 +84,7 @@ export default class FetchMenu extends Component {
                 <View>
                     <Button
                         title="Go To Cart"
-                        onPress={() => navigate('GoToCart', {arrayCartItems: this.cartItems, totalprice: this.state.pricetotal})}
+                        onPress={() => navigate('GoToCart', {arrayCartItems: this.cartItems, totalPrice: this.state.priceTotal})}
                     />
                 </View>
             </SafeAreaView>

@@ -1,13 +1,5 @@
 import React, { Component } from 'react';
-import {ActivityIndicator,
-        Button,
-        Text,
-        View,
-        FlatList,
-        StyleSheet,
-        SafeAreaView,
-        TouchableHighlight}
-        from "react-native";
+import {ActivityIndicator,Button, Text, View, FlatList, StyleSheet, SafeAreaView, TouchableHighlight} from "react-native";
 
 import listresto from '../listresto.json';
 
