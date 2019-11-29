@@ -1,35 +1,73 @@
 import React, { Component } from 'react';
-import {ActivityIndicator, Button, Text, View, FlatList, StyleSheet} from "react-native";
+import {ActivityIndicator,
+        Button,
+        Text,
+        View,
+        FlatList,
+        StyleSheet,
+        SafeAreaView,
+        TouchableHighlight}
+        from "react-native";
+
 import listresto from '../listresto.json';
 
 export default class FetchRestaurants extends Component {
 
     constructor(props){
         super(props);
-        this.state ={ menu:""}
+        this.state ={
+            isLoading: true,
+            menu: "",
+        }
+
     }
 
+//    componentDidMount(){
+//        fetch('https://jsonplaceholder.typicode.com/users')
+//            .then((response) => response.json())
+//            .then((responseJson) => {
+//                this.setState({
+//                isLoading: false,
+//                dataSource: responseJson, //Need to modify after getting real JSON
+//                });
+//             },
+//            )
+//            .catch((error) =>{
+//                console.error(error);
+//            });
+//    }
+
     render(){
+
         const {navigate} = this.props.navigation;
 
         return (
-            <View style={{ flex: 1, flexDirection: 'column' }}>
-                <Text style={{fontSize: 40}}>Fetch Restaurants{"\n"}</Text>
-                
-                <FlatList 
-                    data={listresto}
-                    showsVerticalScrollIndicator={false}
-                    renderItem={({item}) =>
-                    <View >
-                        <Text style={{fontSize: 30, lineHeight: 50}} 
-                            onPress={() =>this.props.navigation.navigate('FetchMenu', {menu: item.name})}>
-                            {item.name}
-                        </Text>
-                    </View>
-                    }
-                    keyExtractor={(item, index) => index.toString()}
-                />
-            </View>
+        <SafeAreaView style={styles.container}>
+                 <View style={styles.container}>
+                        <FlatList
+//                        data={this.state.dataSource}  add this after having real data
+                          data={listresto}
+                          renderItem={({item}) => {
+                            return(
+                                <TouchableHighlight onPress={() => this.props.navigation.navigate('FetchMenu', {menu: item.name})}
+                                underlayColor='white'>
+                                     <Text style={styles.item}>{item.name}</Text>
+                                </TouchableHighlight>
+
+                            )
+                            }
+                          }
+                        />
+                </View>
+
+                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+                    <Text>Provide Address</Text>
+                    <Button
+                        title="FetchMenu"
+                        onPress={() => navigate('FetchMenu')}
+                    />
+                </View>
+            </SafeAreaView>
         );
     }
 };
