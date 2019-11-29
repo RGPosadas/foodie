@@ -19,7 +19,7 @@ export default class FetchMenu extends Component {
         super(props);
         this.state ={ isLoading: true};
 
-        this.cartItems = [
+        this.menuItems = [
             {
                 name: 'First Item',
                 price: 10,
@@ -33,6 +33,7 @@ export default class FetchMenu extends Component {
                 price: 8,
             },
         ];
+        this.cartItems = [];
     }
 //    const data = {foo:1, bar:2};
 //
@@ -56,6 +57,11 @@ export default class FetchMenu extends Component {
 //            });
 //    }
 
+    addToCart(item){
+        this.cartItems.push(item);
+        alert("Added");
+    };
+
     render(){
 
         const {navigate} = this.props.navigation;
@@ -68,10 +74,10 @@ export default class FetchMenu extends Component {
                 <View style={styles.container}>
                       <FlatList
 //                        data={this.state.dataSource}  add this after having real data
-                          data={this.cartItems}
+                          data={this.menuItems}
                           renderItem={({item}) => {
                                return(
-                                    <TouchableHighlight onPress={() => alert("Added") }
+                                    <TouchableHighlight onPress={() => this.addToCart(item) }
                                     underlayColor='white'>
                                         <Text style={styles.item}>{item.name} {item.price}</Text>
                                      </TouchableHighlight>
