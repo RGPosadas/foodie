@@ -1,79 +1,43 @@
-// import React, {Component} from 'react';
-// import {AppRegistry, Text, View, ListView, StyleSheet, TouchableHighlight} from 'react-native';
-//
-// export default class Component5 extends Component{
-//     constructor(){
-//         super();
-//         const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-//         this.state = {
-//             userDataSource: ds,
-//         };
-//     }
-//
-//     componentDidMount(){
-//         this.fetchUsers();
-//     }
-//
-//     fetchUsers(){
-//         fetch('https://jsonplaceholder.typicode.com/users')
-//             .then((response) => response.json())
-//             .then((response) => {
-//                 this.setState({
-//                     userDataSource: this.state.userDataSource.cloneWithRows(response)
-//                 });
-//             });
-//     }
-//
-//     onPress(user){
-//         this.props.navigator.push({
-//             id: 'fetchRestaurants',
-//             user: user
-//         });
-//     }
-//
-//     renderRow(user, sectionId, rowId, highlightRow){
-//         return(
-//             <TouchableHighlight onPress={() => {this.onPress(user)}}>
-//             <View style={styles.row}>
-//                 <Text style={styles.rowText}>{user.name}: {user.email}</Text>
-//             </View>
-//             </TouchableHighlight>
-//         )
-//     }
-//
-//     render(){
-//         return(
-//         <ListView
-//             dataSource={this.state.userDataSource}
-//             renderRow={this.renderRow.bind(this)}
-//         />
-//         );
-//     }
-// }
-//
-// const styles = StyleSheet.create({
-//     row: {
-//         flexDirection:'row',
-//         justifyContent:'center',
-//         padding:10,
-//         backgroundColor: '#f4f4f4',
-//         marginBottom:3
-//     },
-//     rowText: {
-//         flex:1
-//     }
-// });
-//
-// AppRegistry.registerComponent('FetchRestaurants', () => FetchRestaurants);
-
 import React, { Component } from 'react';
-import {ActivityIndicator, Button, Text, View} from "react-native";
+import {ActivityIndicator,
+        Button,
+        Text,
+        View,
+        FlatList,
+        StyleSheet,
+        SafeAreaView,
+        TouchableHighlight}
+        from "react-native";
 
 export default class FetchRestaurants extends Component {
 
     constructor(props){
         super(props);
-        this.state ={ isLoading: true}
+        this.state ={
+            isLoading: true,
+            restaurants: []
+        }
+
+    }
+
+    componentDidMount(){
+        fetch('https://jsonplaceholder.typicode.com/users')
+            .then((response) => response.json())
+            .then((responseJson) => {
+                alert('Data get!')
+                this.setState({
+                isLoading: false,
+                dataSource: responseJson, //Need to modify after getting real JSON
+                });
+             },
+            )
+            .catch((error) =>{
+                console.error(error);
+            });
+    }
+
+    _onPress(){
+        alert("you pressed")
     }
 
     render(){
@@ -81,13 +45,35 @@ export default class FetchRestaurants extends Component {
         const {navigate} = this.props.navigation;
 
         return (
-            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-                <Text>Provide Address</Text>
-                <Button
-                    title="FetchMenu"
-                    onPress={() => navigate('FetchMenu')}
-                />
-            </View>
+        <SafeAreaView style={styles.container}>
+                 <View style={styles.container}>
+                        <FlatList
+                          data={this.state.dataSource}
+                          renderItem={({item}) => <Text style={styles.item}>{item.name}</Text>}
+                          //keyExtractor = {({id}, index) => id}
+                        />
+                </View>
+
+                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+                    <Text>Provide Address</Text>
+                    <Button
+                        title="FetchMenu"
+                        onPress={() => navigate('FetchMenu')}
+                    />
+                </View>
+            </SafeAreaView>
         );
     }
 };
+
+const styles = StyleSheet.create({
+  container: {
+   flex: 1,
+   paddingTop: 22
+  },
+  item: {
+    padding: 10,
+    fontSize: 18,
+    height: 44,
+  },
+})
