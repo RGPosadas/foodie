@@ -5,7 +5,22 @@ export default class FetchMenu extends Component {
 
     constructor(props){
         super(props);
-        this.state ={ isLoading: true}
+        this.state ={ isLoading: true};
+
+        this.cartItems = [
+            {
+                name: 'First Item',
+                price: 10,
+            },
+            {
+                name: 'Second Item',
+                price: 5,
+            },
+            {
+                name: 'Third Item',
+                price: 8,
+            },
+        ];
     }
 
     render(){
