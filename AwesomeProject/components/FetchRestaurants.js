@@ -1,67 +1,93 @@
-import React, {Component} from 'react';
-import {AppRegistry, Text, View, ListView, StyleSheet, TouchableHighlight} from 'react-native';
+// import React, {Component} from 'react';
+// import {AppRegistry, Text, View, ListView, StyleSheet, TouchableHighlight} from 'react-native';
+//
+// export default class Component5 extends Component{
+//     constructor(){
+//         super();
+//         const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+//         this.state = {
+//             userDataSource: ds,
+//         };
+//     }
+//
+//     componentDidMount(){
+//         this.fetchUsers();
+//     }
+//
+//     fetchUsers(){
+//         fetch('https://jsonplaceholder.typicode.com/users')
+//             .then((response) => response.json())
+//             .then((response) => {
+//                 this.setState({
+//                     userDataSource: this.state.userDataSource.cloneWithRows(response)
+//                 });
+//             });
+//     }
+//
+//     onPress(user){
+//         this.props.navigator.push({
+//             id: 'fetchRestaurants',
+//             user: user
+//         });
+//     }
+//
+//     renderRow(user, sectionId, rowId, highlightRow){
+//         return(
+//             <TouchableHighlight onPress={() => {this.onPress(user)}}>
+//             <View style={styles.row}>
+//                 <Text style={styles.rowText}>{user.name}: {user.email}</Text>
+//             </View>
+//             </TouchableHighlight>
+//         )
+//     }
+//
+//     render(){
+//         return(
+//         <ListView
+//             dataSource={this.state.userDataSource}
+//             renderRow={this.renderRow.bind(this)}
+//         />
+//         );
+//     }
+// }
+//
+// const styles = StyleSheet.create({
+//     row: {
+//         flexDirection:'row',
+//         justifyContent:'center',
+//         padding:10,
+//         backgroundColor: '#f4f4f4',
+//         marginBottom:3
+//     },
+//     rowText: {
+//         flex:1
+//     }
+// });
+//
+// AppRegistry.registerComponent('FetchRestaurants', () => FetchRestaurants);
 
-export default class Component5 extends Component{
-    constructor(){
-        super();
-        const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-        this.state = {
-            userDataSource: ds,
-        };
-    }
+import React, { Component } from 'react';
+import {ActivityIndicator, Button, Text, View} from "react-native";
 
-    componentDidMount(){
-        this.fetchUsers();
-    }
+export default class FetchRestaurants extends Component {
 
-    fetchUsers(){
-        fetch('https://jsonplaceholder.typicode.com/users')
-            .then((response) => response.json())
-            .then((response) => {
-                this.setState({
-                    userDataSource: this.state.userDataSource.cloneWithRows(response)
-                });
-            });
-    }
-
-    onPress(user){
-        this.props.navigator.push({
-            id: 'fetchRestaurants',
-            user: user
-        });
-    }
-
-    renderRow(user, sectionId, rowId, highlightRow){
-        return(
-            <TouchableHighlight onPress={() => {this.onPress(user)}}>
-            <View style={styles.row}>
-                <Text style={styles.rowText}>{user.name}: {user.email}</Text>
-            </View>
-            </TouchableHighlight>
-        )
+    constructor(props){
+        super(props);
+        this.state ={ isLoading: true}
     }
 
     render(){
-        return(
-        <ListView
-            dataSource={this.state.userDataSource}
-            renderRow={this.renderRow.bind(this)}
-        />
+
+        const {navigate} = this.props.navigation;
+
+        return (
+            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+                <Text>Provide Address</Text>
+                <Button
+                    title="FetchMenu"
+                    onPress={() => navigate('FetchMenu')}
+                />
+            </View>
         );
     }
-}
-
-const styles = StyleSheet.create({
-    row: {
-        flexDirection:'row',
-        justifyContent:'center',
-        padding:10,
-        backgroundColor: '#f4f4f4',
-        marginBottom:3
-    },
-    rowText: {
-        flex:1
-    }
-});
-
-AppRegistry.registerComponent('FetchRestaurants', () => FetchRestaurants);
+};

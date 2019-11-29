@@ -6,55 +6,23 @@
  * @flow
  */
 
-import React, { Component } from 'react';
-import { FlatList, ActivityIndicator, Text, View  } from 'react-native'
+import React from 'react';
+import { View, Text } from 'react-native';
+import {createAppContainer} from 'react-navigation';
+import {createStackNavigator} from 'react-navigation-stack';
 
-export default class FetchExample extends React.Component {
+import FetchExample from './components/FetchExample';
+import ProvideAddress from './components/ProvideAddress';
+import FetchRestaurants from './components/FetchRestaurants';
+import FetchMenu from './components/FetchMenu';
+import GoToCart from './components/GoToCart';
 
-  constructor(props){
-    super(props);
-    this.state ={ isLoading: true}
-  }
+const MainNavigator = createStackNavigator({
+    Home: FetchExample,
+    ProvideAddress: ProvideAddress,
+    FetchRestaurants: FetchRestaurants,
+    FetchMenu: FetchMenu,
+    GoToCart: GoToCart
+});
 
-  componentDidMount(){
-    return fetch('https://facebook.github.io/react-native/movies.json')
-      .then((response) => response.json())
-      .then((responseJson) => {
-
-        this.setState({
-          isLoading: false,
-          dataSource: responseJson.movies,
-        }, function(){
-
-        });
-
-      })
-      .catch((error) =>{
-        console.error(error);
-      });
-  }
-
-
-
-  render(){
-
-    if(this.state.isLoading){
-      return(
-        <View style={{flex: 1, padding: 20}}>
-          <ActivityIndicator/>
-        </View>
-      )
-    }
-
-    return(
-      <View style={{flex: 1, paddingTop:20}}>
-        <FlatList
-          data={this.state.dataSource}
-          renderItem={({item}) => <Text>{item.title}, {item.releaseYear}</Text>}
-          keyExtractor={({id}, index) => id}
-        />
-      </View>
-    );
-  }
-}
-
+export default createAppContainer(MainNavigator);
