@@ -75,6 +75,7 @@ export default class FetchMenu extends Component {
                                     )
                                }
                           }
+                          keyExtractor={({id}, index) => id}
                       />
                 </View>
 

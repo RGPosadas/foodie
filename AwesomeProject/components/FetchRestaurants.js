@@ -59,6 +59,7 @@ export default class FetchRestaurants extends Component {
                             )
                             }
                           }
+                          keyExtractor={({id}, index) => id}
                         />
                 </View>
 
