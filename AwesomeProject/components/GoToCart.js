@@ -20,7 +20,7 @@ export default class GoToCart extends Component {
 
     render(){
         const {navigate} = this.props.navigation;
-        this.totalPrice = this.props.navigation.getParam("totalprice");
+        this.totalPrice = this.props.navigation.getParam("totalPrice");
 
         if(this.state.isLoading){
             return(
