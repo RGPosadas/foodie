@@ -81,7 +81,7 @@ export default class FetchMenu extends Component {
 
                 <Button
                     title="GoToCart"
-                    onPress={() => navigate('GoToCart')}
+                    onPress={() => navigate('GoToCart', {arrayCartItems: this.cartItems})}
                 />
             </View>
         );
