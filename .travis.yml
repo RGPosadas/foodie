@@ -1,6 +1,13 @@
 language: java
 script:
+- echo "Starting Travis build..."
+- echo "Compiling application..."
 - mvn compile
 - mvn package
+- echo "Compiling complete."
+- echo "Running the server in the background..."
 - java -jar target/gs-rest-service-0.1.0.jar &
+- echo "Executing unit tests..."
 - mvn clean test
+- echo "Unit tests done."
+- echo "Exiting Travis build."
