@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {ActivityIndicator,Button, Text, View, FlatList, StyleSheet, SafeAreaView, TouchableHighlight} from "react-native";
 
-import listresto from '../listresto.json';
+import listresto from '../listresto.json'; //TO REMOVE AFTER CONNECTING TO BACKEND
 
 export default class FetchRestaurants extends Component {
 
@@ -17,6 +17,7 @@ export default class FetchRestaurants extends Component {
         }
 
     }
+// UNCOMMENT WHEN CONNECTING TO REAL JSON
 
 //    componentDidMount(){
 //        fetch('https://jsonplaceholder.typicode.com/users')
@@ -44,7 +45,7 @@ export default class FetchRestaurants extends Component {
                  <View style={styles.container}>
                         <FlatList
 //                        data={this.state.dataSource}  add this after having real data
-                          data={listresto}
+                          data={listresto}    // REMOVE AFTER HAVING REAL DATA
                           renderItem={({item}) => {
                             return(
                                 <TouchableHighlight onPress={() => this.props.navigation.navigate('FetchMenu', {menu: item.name})}

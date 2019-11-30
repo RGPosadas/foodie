@@ -27,12 +27,15 @@ export default class FetchMenu extends Component {
         ];
         this.cartItems = [];
     }
+   //EXAMPLE
 //    const data = {foo:1, bar:2};
 //
 //    fetch('https://api.parse.com/1/users?foo=${encodeURIComponent(data.foo)}&bar=${encodeURIComponent(data.bar)}', {
 //        method: "GET",
 //        headers: headers,
 //    })
+
+// UNCOMMENT WHEN CONNECTING TO REAL JSON
 
 //    componentDidMount(){
 //        fetch('https://jsonplaceholder.typicode.com/users')
@@ -67,7 +70,7 @@ export default class FetchMenu extends Component {
                 <View style={styles.container}>
                       <FlatList
 //                        data={this.state.dataSource}  add this after having real data
-                          data={this.menuItems}
+                          data={this.menuItems} //REMOVE AFTER REAL DATA IS AVAILABLE
                           renderItem={({item}) => {
                                return(
                                     <TouchableHighlight onPress={() => this.addToCart(item) }
