@@ -1,4 +1,5 @@
 # foodie - SOEN343 Project
+v1.0
 
 `Foodie`, the mobile food delivery application, has the goal of facilitating food delivery and making it easily accessible. The objective of the application is to establish communication between customers, restaurants, and independent drivers to ensure reliable delivery. The benefits of having a mobile application is the ease of use and accessibility to satisfy all cravings quickly and efficiently
 
