@@ -27,6 +27,8 @@ const MainNavigator = createStackNavigator({
 
 export default createAppContainer(MainNavigator);
 
+console.disableYellowBox = true; 
+
 // export default function App() {
 //   const [response, setResponse] = useState(null);
 //   useEffect(() => {
