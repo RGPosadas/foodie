@@ -16,7 +16,7 @@
 - [Yomna Abdelkawy](https://github.com/yabdelkawy)
 
 # Setup Front-End
-Follow the steps in the [wiki](https://github.com/RGPosadas/foodie/wiki/Setup-Front-End-for-Android-App)
+Follow the steps in the [wiki](https://github.com/RGPosadas/foodie/wiki/Setup-Front-End)
 
 # Getting the Backend Running
 
